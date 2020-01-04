@@ -1,6 +1,6 @@
 file= docker-compose.yml
 file-prod= docker-compose.prod.yml
-compose-file= $(file-prod)
+compose-file= $(file)
 
 build:
 	docker-compose -f $(compose-file) build

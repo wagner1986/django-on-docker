@@ -9,6 +9,8 @@ urlpatterns = [
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
 ]
-
-if bool(settings.DEBUG):
+print("settings.DEBUG ",settings.DEBUG)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    print("set with debug",urlpatterns)
