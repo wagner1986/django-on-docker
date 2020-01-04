@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.3'
 
 services:
   web:
@@ -9,17 +9,19 @@ services:
     ports:
       - 8000:8000
     env_file:
-      - ./.env.dev
+      - ./env/.env.dev-sample
     depends_on:
       - db
   db:
     image: postgres:12.0-alpine
+    ports:
+      - "5432:5432"
     volumes:
+      - ./docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d   
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=hello_django
-      - POSTGRES_PASSWORD=hello_django
-      - POSTGRES_DB=hello_django_dev
-
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=app
+      - POSTGRES_MULTIPLE_DATABASES=tst_db, dev_db, prod_db
 volumes:
   postgres_data:

@@ -1,3 +1,4 @@
+https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/#conclusion
 # Dockerizing Django with Postgres, Gunicorn, and Nginx
 
 ## Want to learn how to build this?
